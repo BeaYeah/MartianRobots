@@ -1,0 +1,30 @@
+package com.beayeah.yeah.martianrobots
+
+import junit.framework.Assert.assertEquals
+import org.junit.Test
+
+class CommandParserTest {
+    @Test
+    fun executeCommands() {
+        val output = CommandParser().execute(testData)
+
+        assertEquals(expectedOutput, output)
+    }
+
+    val testData = """5 3
+1 1 E
+RFRFRFRF
+
+3 2 N
+FRRFLLFFRRFLL
+
+0 3 W
+LLFFFLFLFL
+"""
+
+    val expectedOutput = """1 1 E
+3 3 N LOST
+2 3 S
+"""
+
+}
